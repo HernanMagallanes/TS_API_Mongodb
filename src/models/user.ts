@@ -1,11 +1,12 @@
 import { model, Schema, Document } from "mongoose";
 
 import bcrypt from "bcrypt";
-import passport from "passport";
+// import passport from "passport";
 
 export interface IUser extends Document {
 	email: string;
 	password: string;
+	comparePassword: (password: string) => Promise<boolean>;
 }
 
 const userSchema = new Schema({
